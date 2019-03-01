@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			  <a class="navbar-brand" href="#">TODOlist</a>
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			    <ul class="navbar-nav mr-auto">
+			      <li class="nav-item">
+			        <a class="nav-link" href="/userprofile"><i class="fas fa-tasks"></i>Tasks</a>
+			      </li>
+			      <li class="nav-item dropdown">
+			       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			           <i class="fas fa-users"></i><%=name%>
+			        </a>
+			        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			          <a class="dropdown-item" href="#">User Account</a>
+			          <a class="dropdown-item" href="#">longout</a>
+			        </div>
+			      </li>
+			       <li class="nav-item">
+			        <a class="nav-link" href="/createnewtask"><i class="fas fa-tasks"></i>create new task</a>
+			      </li>
+			    </ul>
+			     
+			  </div>
+</nav>
+
+
+<section class="product">
+<div class="container">
+	<div class="row">
+
+	 <%if(fl==="0"){%>
+	     <div class="col-sm-3 col-lg-3 notak">
+	     	<p>no tasks created , create new task now  </p>
+	     </div>
+	   <%}else{
+	       task.forEach(function(t) {
+	   
+	  %>	
+		<div class="col-sm-3 col-lg-3 onepr">
+			<div class="card" style="width: 18rem;">
+		    <img src="/images/download.png" class="card-img-top" class="img-responsive">		
+			  <div class="card-body">
+			    <h5 class="card-title">task_name : <%=t[0].taskname%></h5>
+			    <p class="card-text">description : <%=t[0].description%> </p>
+			    <a href="#" class="btn btn-primary">Start_date : <%=t[0].start_date%> </a>
+			    <hr>
+			    <a href="#" class="btn btn-primary">End_date : <%=t[0].end_start%> </a>
+			  </div>
+           </div>
+		</div>
+		      <%})}%>
+		</div>
+	</div>
+</div>
+</section>
+  
+			  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+			  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+			   <script src="javascripts/bootstrap.min.js"></script>
+  </body>
+
+
+</html>
